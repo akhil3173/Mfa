@@ -1,0 +1,112 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Page</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background-color: hsl(0, 0%, 100%);
+            color: #fdca40;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 8px;
+            font-family: "Silkscreen", sans-serif;
+        }
+
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            padding: 0 10px;
+        }
+
+        .container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .product-image {
+            max-width: 100%;
+            height: auto;
+        }
+
+        .product-details {
+            text-align: left;
+        }
+
+        .product-name {
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .product-price {
+            font-size: 20px;
+            margin-bottom: 10px;
+        }
+
+        .buy-now-btn {
+            padding: 10px 20px;
+            font-size: 18px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .buy-now-btn:hover {
+            background-color: #0056b3;
+        }
+
+        footer {
+            background-color: #333;
+            color: #fff;
+            padding: 10px 0;
+            text-align: center;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <a href="#" class="logo">
+            <img src="{% static 'images/logo.svg' %}" alt="Casmart logo" width="130" height="31">
+        </a>
+    </header>
+    <div class="container">
+        <img src="{% static 'images/product-2.jpg' %}" alt="Product Image" class="product-image">
+        <div class="product-details">
+            <h2 class="product-name">Fit Twill Shirt for Woman</h2>
+            <p>
+                The Fit Twill Shirt for Women is a classic wardrobe staple with a modern twist, designed to offer both style and comfort for the contemporary woman. Crafted from high-quality twill fabric, this shirt combines a sleek appearance with a soft and breathable texture, ensuring a comfortable fit throughout the day.</p>
+            <p class="product-price">₹3500</p>
+            <button onclick="buy()"  class="buy-now-btn">Buy Now</button>
+        </div>
+    </div>
+    <script>
+        function buy(){
+            location.replace("/payment");
+        }
+    </script>
+</body>
+
+</html>

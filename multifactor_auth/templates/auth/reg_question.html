@@ -1,0 +1,244 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Security Question Setup</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background-color: hsl(0, 0%, 100%);
+            color: #fdca40;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 8px;
+            font-family: "Silkscreen", sans-serif;
+        }
+
+        .logo {
+            font-size: 50px;
+            font-weight: bold;
+        }
+
+        .signup-button {
+            background-color: hsl(174, 100%, 85%);
+            color: black;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-family: Arial, sans-serif;
+        }
+
+        .signup-button:hover {
+            background-color: black;
+            color: white;
+        }
+
+        .content {
+            display: flex;
+            justify-content: space-around;
+            margin: 20px;
+        }
+
+        .info-box {
+            padding: 50px;
+            border-radius: 5px;
+            width: 45%;
+        }
+
+        h2 {
+            text-align: center;
+            color: black;
+            font-family: 'Silkscreen', sans-serif;
+            font-size: 40px;
+
+
+        }
+
+        .info-box h1 {
+            font-family: 'Silkscreen', sans-serif;
+            text-align: center;
+            font-size: 48px;
+            color: black;
+
+
+        }
+
+        .info-box p {
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+            padding: 30px;
+            text-align: center;
+            font-size: 30px;
+            color: black;
+
+        }
+
+        .signin-box {
+            padding: 60px;
+            border-radius: 45px;
+            width: 30%;
+            background-color: white;
+        }
+
+
+
+        .input-group {
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        p {
+            text-align: center;
+            margin-top: 0%;
+        }
+
+        label {
+            display: block;
+        }
+
+        input {
+            width: 80%;
+            background-color: hsl(174, 77%, 85%);
+            padding: 10px;
+            margin-top: 10px;
+            border: 1px solid black;
+            border-radius: 4px;
+        }
+
+        button {
+            background-color: black;
+            width: 55%;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-family: Arial, sans-serif;
+            font-size: 20px
+        }
+
+        button:hover {
+            background-color: white;
+            color: black;
+
+        }
+
+        body {
+            background-color: hsl(187, 92%, 85%);
+        }
+
+
+        footer {
+            background-color: white;
+            color: white;
+            display: flex;
+            justify-content: space-between;
+            padding: 15px;
+            font-family: Arial, sans-serif;
+        }
+
+        .copyright {
+            font-size: 30px;
+            padding: 20px;
+            font-family: Arial, Helvetica, sans-serif;
+            color: white;
+        }
+
+        .social-media {
+            display: flex;
+            padding: 20px;
+            gap: 30px;
+        }
+
+        .instagram,
+        .twitter {
+            font-weight: bold;
+            text-decoration: underline;
+            cursor: pointer;
+        }
+
+        .instagram:hover,
+        .twitter:hover {
+            color: #fdca40;
+        }
+
+        .popup {
+            color: red;
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <a href="/home" class="logo">
+            <img src="{% static 'images/logo.svg' %}" alt="Casmart logo" width="130" height="31">
+        </a>
+            <div class="login-button">Login</div>
+        </a>
+    </header>
+    {% if messages %}
+    <div id="popup" class="popup">
+        {% for message in messages %}
+        <p>{{ message }}</p>
+        {% endfor %}
+    </div>
+    {% endif %}
+    <div class="content">
+        <div class="info-box">
+            <h1>Welcome to Casmart!</h1>
+            <p>Welcome to our digital marketplace, where convenience meets endless possibilities! Explore, discover, and shop to your heart's content. Your journey to a world of choice begins here!</p>
+        </div>
+        <div class="signup-box">
+            <h2>Security Question Setup</h2>
+
+            <form action="/process-security-question" method="post">
+                {% csrf_token %}
+                <div class="input-group">
+                    <input type="text" id="security_question" name="security_question" placeholder="Question" required>
+                </div>
+                <div class="input-group">
+                    <input type="text" id="security_answer" name="security_answer" placeholder="Answer" required>
+                </div>
+                <div class="input-group">
+                    <button type="submit">Sign Up</button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            var popup = document.getElementById('popup');
+
+
+            if (popup) {
+                popup.style.display = 'block';
+
+
+                setTimeout(function () {
+                    popup.style.display = 'none';
+                }, 5000);
+            }
+        });
+        function login() {
+            location.replace("C:\\Users\\ataur\\login.html")
+        }
+        function insta() {
+            location.replace("https://www.instagram.com/")
+        }
+        function twi() {
+            location.replace("https://twitter.com/")
+        }
+    </script>
+</body>
+
+</html>

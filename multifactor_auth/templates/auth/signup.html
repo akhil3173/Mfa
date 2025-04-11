@@ -1,0 +1,263 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Silkscreen&display=swap" rel="stylesheet">
+
+
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background-color: white;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px;
+            font-family: "Silkscreen", sans-serif;
+        }
+
+        .logo {
+            font-size: 50px;
+            font-weight: bold;
+        }
+
+        .login-button {
+            background-color: hsl(174, 77%, 85%);
+            color: black;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-family: Arial, sans-serif;
+        }
+
+        .login-button:hover {
+            background-color: black;
+            color: white;
+        }
+
+
+        .content {
+            display: flex;
+            justify-content: space-around;
+            margin: 20px;
+        }
+
+        .info-box {
+            padding: 20px;
+            border-radius: 5px;
+            width: 45%;
+        }
+
+        h2 {
+            text-align: center;
+            color: black;
+            font-family: 'Silkscreen', sans-serif;
+            font-size: 40px;
+
+
+        }
+
+        .info-box h1 {
+            font-family: 'Silkscreen', sans-serif;
+            text-align: center;
+            font-size: 48px;
+            color: black;
+
+
+        }
+
+        .info-box p {
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+            padding: 30px;
+            text-align: center;
+            font-size: 30px;
+            color: black;
+
+        }
+
+        .signup-box {
+            padding: 20px;
+            border-radius: 45px;
+            width: 40%;
+            background-color: white;
+        }
+
+
+
+        .input-group {
+            margin-bottom: 8px;
+            text-align: center;
+        }
+
+        label {
+            display: block;
+        }
+
+        input {
+            width: 70%;
+            background-color: hsl(174, 77%, 85%);
+            padding: 10px;
+            margin-top: 10px;
+            border: 1px solid black;
+            border-radius: 4px;
+        }
+
+        button {
+            background-color: black;
+            width: 75%;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-family: Arial, sans-serif;
+            font-size: 20px
+        }
+
+        button:hover {
+            background-color: white;
+            color: black;
+
+        }
+
+        body {
+            background-color: hsl(187, 92%, 85%);
+        }
+
+        footer {
+            background-color: black;
+            color: white;
+            display: flex;
+            justify-content: space-between;
+            padding: 10px;
+            font-family: Arial, sans-serif;
+        }
+
+        .copyright {
+            font-size: 30px;
+            padding: 20px;
+            font-family: Arial, Helvetica, sans-serif;
+            color: #fdca40;
+        }
+
+        .social-media {
+            display: flex;
+            padding: 20px;
+            gap: 30px;
+        }
+
+        .instagram,
+        .twitter {
+            font-weight: bold;
+            text-decoration: underline;
+            cursor: pointer;
+        }
+
+        .instagram:hover,
+        .twitter:hover {
+            color: #fdca40;
+        }
+
+        p {
+            text-align: center;
+        }
+
+        .alert {
+            background-color: #ccc;
+        }
+
+        .popup {
+            color: red;
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <a href="#" class="logo">
+            <img src="{% static 'images/logo.svg' %}" alt="Casmart logo" width="130" height="31">
+        </a>
+        <a href="/login">
+            <div class="login-button">Login</div>
+        </a>
+    </header>
+    {% if messages %}
+    <div id="popup" class="popup">
+        {% for message in messages %}
+        <p>{{ message }}</p>
+        {% endfor %}
+    </div>
+    {% endif %}
+    <div class="content">
+        <div class="info-box">
+           <h1>Welcome to Casmart!</h1>
+            <p>Welcome to our digital marketplace, where convenience meets endless possibilities! Explore, discover, and shop to your heart's content. Your journey to a world of choice begins here!</p>
+        </div>
+        <div class="signup-box">
+            <h2>Sign Up</h2>
+
+            <form action="/signup" method="post">
+                {% csrf_token %}
+                <div class="input-group">
+                    <input type="text" placeholder="Username" id="username" name="username" required>
+                </div>
+                <div class="input-group">
+                    <input type="text" placeholder="Firstname" id="fname" name="fname" required>
+                </div>
+                <div class="input-group">
+                    <input type="text" placeholder="Lastname" id="lname" name="lname" required>
+                </div>
+                <div class="input-group">
+                    <input type="email" placeholder="Email ID" id="email" name="email" required>
+                </div>
+                <div class="input-group">
+
+                    <input type="password" placeholder="Password" id="pass1" name="pass1" required>
+                </div>
+                <div class="input-group">
+                    <input type="password" placeholder="Confirm Password" id="pass2" name="pass2" required>
+                </div>
+                <div class="input-group">
+                    <button type="submit">Sign Up</button>
+                </div>
+                <p>Already existing user?<a href="/login">Login</a></p>
+            </form>
+        </div>
+    </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            var popup = document.getElementById('popup');
+
+
+            if (popup) {
+                popup.style.display = 'block';
+
+
+                setTimeout(function () {
+                    popup.style.display = 'none';
+                }, 10000);
+            }
+        });
+        function login() {
+            location.replace("C:\\Users\\ataur\\login.html")
+        }
+        function insta() {
+            location.replace("https://www.instagram.com/")
+        }
+        function twi() {
+            location.replace("https://twitter.com/")
+        }
+    </script>
+</body>
+
+</html>

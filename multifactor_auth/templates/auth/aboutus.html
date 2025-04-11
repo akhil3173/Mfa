@@ -1,0 +1,171 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Silkscreen&display=swap" rel="stylesheet">
+    <title>About ThreatHub</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 20px;
+            background-color: hsl(187, 92%, 85%);
+            color: #fff;
+        }
+
+
+
+        header {
+            background-color: hsl(0, 0%, 100%);
+            color: #fdca40;
+            align-items: center;
+            padding: 30px;
+            font-family: "Silkscreen", sans-serif;
+        }
+
+        #logo {
+            margin-left: 40%;
+            color: #fdca40;
+            text-decoration: none;
+            font-size: 40px;
+            font-weight: bold;
+            font-family: 'Silkscreen', sans-serif;
+        }
+
+
+        .menu:hover {
+            color: #fdca40;
+        }
+
+        .sidenav {
+            height: 100%;
+            width: 0;
+            position: fixed;
+            z-index: 1;
+            top: 0;
+            left: 0;
+            background-color: black;
+            overflow-x: hidden;
+            transition: 0.5s;
+            padding-top: 60px;
+        }
+
+        .sidenav a {
+            padding: 8px 8px 8px 32px;
+            text-decoration: none;
+            font-size: 25px;
+            color: white;
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+            display: block;
+            transition: 0.3s;
+        }
+
+        .sidenav a:hover {
+            color: #fdca40;
+        }
+
+        .sidenav .closebtn {
+            position: absolute;
+            top: 0;
+            right: 25px;
+            font-size: 36px;
+            margin-left: 50px;
+        }
+
+        @media screen and (max-height: 450px) {
+            .sidenav {
+                padding-top: 15px;
+            }
+
+            .sidenav a {
+                font-size: 18px;
+            }
+
+        }
+
+        nav {
+            background-color: #080708;
+            color: #fff;
+            padding: 10px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 10px;
+        }
+
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            padding: 8px 16px;
+            display: inline-block;
+        }
+
+        nav a:hover {
+            background-color: #080708;
+            color: #fdca40;
+        }
+
+
+
+        h1,
+        h2 {
+            color: black;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        #learnhub-section {
+            padding: 20px;
+            margin-top: 20px;
+        }
+        .container{
+            color: #080708;
+        }
+    </style>
+</head>
+<header>
+    <a href="#" class="logo">
+        <img src="{% static 'images/logo.svg' %}" alt="Casmart logo" width="130" height="31">
+    </a>
+</header>
+
+<body>
+    <div class="container">
+        <h1>About Us</h1>
+        <p>Welcome to CasMart, your premier destination for all things tech, lifestyle, and beyond. At CasMart, we're
+            more than just an online marketplace – we're a community driven by passion, innovation, and a commitment to
+            delivering exceptional experiences to our customers.</p>
+        <p>Our journey began with a simple idea: to create a platform where technology meets convenience, where quality
+            meets affordability, and where shopping becomes an experience worth remembering. Since our inception, we've
+            worked tirelessly to curate a diverse selection of products that cater to the ever-evolving needs and
+            desires of our customers.</p>
+        <p>What sets us apart is our relentless dedication to customer satisfaction. From the moment you land on our
+            site to the instant your order arrives at your doorstep, we're here to ensure that your journey with us is
+            seamless and rewarding. Whether you're a tech enthusiast searching for the latest gadgets, a fashion-forward
+            individual looking to elevate your style, or a homemaker seeking innovative solutions for everyday living,
+            CasMart has something for everyone.</p>
+        <p>But CasMart is more than just a marketplace – we're a team of passionate individuals who are driven by a
+            shared vision of reshaping the way people shop online. Our team comprises experts from diverse backgrounds,
+            all united by a common goal: to exceed your expectations at every turn. From our dedicated customer support
+            team to our meticulous quality control specialists, every member of the CasMart family plays a pivotal role
+            in ensuring that your experience with us is nothing short of exceptional.</p>
+        <p>Beyond our commitment to customer satisfaction, we're also deeply invested in giving back to the community.
+            Through partnerships with charitable organizations and initiatives aimed at promoting sustainability, we're
+            constantly striving to make a positive impact on the world around us. Because at CasMart, we believe that
+            true success is measured not just by profits, but by the difference we make in the lives of others.</p>
+        <p>Thank you for choosing CasMart. Whether you're a first-time visitor or a loyal customer, we're honored to
+            have you as part of our community. Join us on this journey as we continue to redefine the possibilities of
+            online shopping, one satisfied customer at a time.</p>
+        <p>Welcome to CasMart – where convenience meets quality, and where shopping becomes an experience worth
+            cherishing.</p>
+    </div>
+
+</html>

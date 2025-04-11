@@ -1,0 +1,2622 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Casmart - Biggest shopping center</title>
+
+  <!-- 
+    - favicon
+  -->
+  <link rel="shortcut icon" href="./favicon.svg" type="image/svg+xml">
+
+  <!-- 
+    - custom css link
+  -->
+
+
+  <!-- 
+    - google font link
+  -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Jost:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    /*-----------------------------------*\
+ * #style.css
+\*-----------------------------------*/
+
+    /**
+ * copyright 2022 codewithsadee
+ */
+
+
+
+
+
+    /*-----------------------------------*\
+ * #CUSTOM PROPERTY
+\*-----------------------------------*/
+
+    :root {
+
+      /**
+ * colors
+ */
+
+      --middle-blue-green: hsl(176, 35%, 63%);
+      --sonic-silver: hsl(0, 0%, 44%);
+      --eerie-black: hsl(0, 0%, 9%);
+      --ocean-green: hsl(148, 45%, 58%);
+      --candy-pink: hsl(356, 65%, 63%);
+      --cultured: hsl(0, 0%, 96%);
+      --white: hsl(0, 0%, 100%);
+      --black: hsl(0, 0%, 0%);
+
+      /**
+ * typography
+ */
+
+      --ff-jost: "Jost", sans-serif;
+
+      --fs-1: 2.5rem;
+      --fs-2: 1.75rem;
+      --fs-3: 1.625rem;
+      --fs-4: 1.5rem;
+      --fs-5: 1.375rem;
+      --fs-6: 1.25rem;
+      --fs-7: 1.125rem;
+      --fs-8: 0.938rem;
+      --fs-9: 0.875rem;
+      --fs-10: 0.813rem;
+
+      --fw-500: 500;
+      --fw-600: 600;
+
+      /**
+ * transition
+ */
+
+      --transition-1: 0.25s ease;
+      --transition-2: 0.75s ease;
+      --cubic-out: cubic-bezier(0.51, 0.03, 0.64, 0.28);
+      --cubic-in: cubic-bezier(0.33, 0.85, 0.56, 1.02);
+
+      /**
+ * spacing
+ */
+
+      --section-padding: 60px;
+
+    }
+
+
+
+
+
+    /*-----------------------------------*\
+* #RESET
+\*-----------------------------------*/
+
+    *,
+    *::before,
+    *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    li {
+      list-style: none;
+    }
+
+    a {
+      text-decoration: none;
+    }
+
+    a,
+    img,
+    span,
+    input,
+    button,
+    ion-icon {
+      display: block;
+    }
+
+    input,
+    button {
+      background: none;
+      border: none;
+      font: inherit;
+    }
+
+    button {
+      text-align: left;
+      cursor: pointer;
+    }
+
+    input {
+      width: 100%;
+      outline-color: var(--middle-blue-green);
+    }
+
+    img {
+      height: auto;
+    }
+
+    ion-icon {
+      pointer-events: none;
+    }
+
+    html {
+      font-family: var(--ff-jost);
+      color: var(--sonic-silver);
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background: var(--white);
+      padding-block: 70px;
+    }
+
+
+
+
+
+    /*-----------------------------------*\
+* #REUSED STYLE
+\*-----------------------------------*/
+
+    .container {
+      padding-inline: 15px;
+    }
+
+    a,
+    button {
+      transition: var(--transition-1);
+    }
+
+    h3>a {
+      color: inherit;
+    }
+
+    .h1,
+    .h2,
+    .h3,
+    .h4 {
+      color: var(--eerie-black);
+      font-weight: var(--fw-600);
+    }
+
+    .h1 {
+      font-size: var(--fs-1);
+      line-height: 1;
+    }
+
+    .h2 {
+      font-size: var(--fs-2);
+    }
+
+    .h3 {
+      font-size: var(--fs-6);
+    }
+
+    .h4 {
+      font-size: var(--fs-7);
+      font-weight: var(--fw-500);
+    }
+
+    .btn {
+      background: var(--background, var(--eerie-black));
+      color: var(--color, var(--white));
+      font-weight: var(--fw-600);
+      height: var(--height, 60px);
+      padding-inline: 50px;
+      border: 1px solid var(--border-color, var(--eerie-black));
+      border-radius: 6px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .btn-primary:is(:hover, :focus) {
+      --background: var(--white);
+      --color: var(--eerie-black);
+      --border-color: var(--eerie-black);
+    }
+
+    .btn-secondary {
+      --height: 50px;
+      --background: var(--white);
+      --color: var(--eerie-black);
+      --border-color: var(--white);
+    }
+
+    .btn-secondary:is(:hover, :focus) {
+      --background: var(--eerie-black);
+      --color: var(--white);
+      --border-color: var(--eerie-black);
+    }
+
+    .btn-outline {
+      --height: 50px;
+      --background: var(--white);
+      --color: var(--eerie-black);
+      --border-color: var(--eerie-black);
+      padding-inline: 40px;
+    }
+
+    .btn-outline:is(:hover, :focus) {
+      --background: var(--eerie-black);
+      --color: var(--white);
+      --border-color: var(--eerie-black);
+    }
+
+    .section {
+      padding-block: var(--section-padding);
+    }
+
+    .w-100 {
+      width: 100%;
+    }
+
+    .section-title {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+
+
+
+
+
+    /*-----------------------------------*\
+* #HEADER
+\*-----------------------------------*/
+
+    .header-search {
+      display: none;
+    }
+
+    .header {
+      position: absolute;
+      top: 0;
+      left: 0;
+      background: var(--white);
+      width: 100%;
+      padding-block: 20px;
+      z-index: 4;
+      transition: var(--transition-1);
+    }
+
+    .header.active {
+      position: fixed;
+      box-shadow: 0 2px 20px hsla(0, 0%, 0%, 0.1);
+    }
+
+    .header .container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .nav-open-btn {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+      padding: 8px;
+    }
+
+    .nav-open-btn span {
+      width: 20px;
+      height: 2px;
+      background: var(--black);
+      transition: var(--transition-1);
+    }
+
+    .nav-open-btn span:nth-child(2) {
+      transform: scaleX(0.5);
+      transform-origin: right;
+    }
+
+    .nav-open-btn:is(:hover, :focus) span:nth-child(2) {
+      transform: scaleX(1);
+    }
+
+    .header-actions {
+      background: var(--white);
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      display: flex;
+      justify-content: space-evenly;
+      align-items: center;
+      gap: 5px;
+      padding-block: 16px 10px;
+      box-shadow: 0 -2px 20px hsla(0, 0%, 0%, 0.1);
+      z-index: 1;
+    }
+
+    .header-action-btn {
+      position: relative;
+      width: 50px;
+      text-align: center;
+    }
+
+    .header-action-btn ion-icon {
+      margin-inline: auto;
+      font-size: 22px;
+      margin-bottom: 3px;
+    }
+
+    .header-action-label {
+      color: var(--sonic-silver);
+      font-size: var(--fs-10);
+      transition: var(--transition-1);
+    }
+
+    .header-action-btn:is(:hover, :focus) .header-action-label {
+      color: var(--eerie-black);
+    }
+
+    .header-action-btn .btn-badge {
+      position: absolute;
+      top: -5px;
+      right: 0;
+      background: var(--background, var(--eerie-black));
+      width: 20px;
+      height: 20px;
+      display: grid;
+      place-items: center;
+      line-height: 0;
+      font-size: 13px;
+      color: var(--white);
+      border-radius: 50%;
+    }
+
+    .header-action-btn .btn-badge.green {
+      --background: var(--middle-blue-green);
+    }
+
+    .navbar {
+      background: var(--white);
+      position: fixed;
+      top: 0;
+      right: -300px;
+      max-width: 300px;
+      width: 100%;
+      height: 100%;
+      padding: 30px 25px;
+      z-index: 3;
+      visibility: hidden;
+      transition: 0.25s var(--cubic-out);
+    }
+
+    .navbar.active {
+      visibility: visible;
+      transform: translateX(-300px);
+      transition: 0.5s var(--cubic-in);
+    }
+
+    .navbar-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 60px;
+    }
+
+    .nav-close-btn ion-icon {
+      font-size: 23px;
+    }
+
+    .navbar-link {
+      padding-block: 10px;
+      color: var(--eerie-black);
+    }
+
+    .navbar-list>li:not(:last-child) {
+      border-bottom: 1px solid var(--cultured);
+    }
+
+    .overlay {
+      position: fixed;
+      inset: 0;
+      background: var(--black);
+      opacity: 0;
+      pointer-events: none;
+      transition: var(--transition-1);
+      z-index: 2;
+    }
+
+    .overlay.active {
+      opacity: 0.7;
+      pointer-events: all;
+    }
+
+
+
+
+
+    /*-----------------------------------*\
+* #HERO
+\*-----------------------------------*/
+
+    .hero {
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-position: left;
+      width: 100%;
+      min-height: 80vh;
+      padding-block: var(--section-padding);
+      display: flex;
+      align-items: center;
+    }
+
+    .hero .container {
+      width: 100%;
+    }
+
+    .hero-subtitle {
+      color: var(--eerie-black);
+      font-size: var(--fs-4);
+      font-weight: var(--fw-600);
+      margin-bottom: 20px;
+    }
+
+    .hero-title {
+      margin-bottom: 35px;
+      max-width: 12ch;
+    }
+
+
+
+
+
+    /*-----------------------------------*\
+* #SERVICE
+\*-----------------------------------*/
+
+    .service {
+      padding-block: 45px;
+    }
+
+    .service-list {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: center;
+      gap: 40px;
+    }
+
+    .service-item {
+      max-width: 235px;
+      width: 100%;
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .service-item-icon {
+      width: 45px;
+    }
+
+    .service-item-icon img {
+      margin-inline: auto;
+    }
+
+    .service-item-title {
+      color: var(--eerie-black);
+      font-size: var(--fs-7);
+      font-weight: var(--fw-600);
+    }
+
+
+
+
+
+    /*-----------------------------------*\
+* #CATETORY
+\*-----------------------------------*/
+
+    .category {
+      padding-top: 0;
+    }
+
+    .category-list {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: center;
+      gap: 30px;
+    }
+
+    .category-item {
+      width: 100%;
+      position: relative;
+    }
+
+    .category-banner {
+      background: var(--cultured);
+      aspect-ratio: 2 / 2.35;
+      overflow: hidden;
+    }
+
+    .category-banner img {
+      height: 100%;
+      object-fit: cover;
+      transition: var(--transition-2);
+    }
+
+    .category-item:hover .category-banner img {
+      transform: scale(1.05);
+    }
+
+    .category-item .btn {
+      position: absolute;
+      bottom: 30px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: max-content;
+      padding-inline: 30px;
+    }
+
+
+
+
+
+    /*-----------------------------------*\
+* #PRODUCT
+\*-----------------------------------*/
+
+    .filter-list {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: center;
+      gap: 10px 20px;
+      margin-bottom: 50px;
+    }
+
+    .filter-btn {
+      color: inherit;
+      font-size: var(--fs-7);
+      font-weight: var(--fw-500);
+    }
+
+    .filter-btn.active {
+      color: var(--eerie-black);
+    }
+
+    .product-list {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 50px 25px;
+      margin-bottom: 60px;
+    }
+
+    .product-card .card-banner {
+      position: relative;
+      margin-bottom: 20px;
+    }
+
+    .product-card .card-badge {
+      background: var(--eerie-black);
+      color: var(--white);
+      position: absolute;
+      top: 0;
+      left: 0;
+      font-size: var(--fs-9);
+      font-weight: var(--fw-500);
+      padding: 3px 10px;
+    }
+
+    .product-card .card-badge.red {
+      background: var(--candy-pink);
+    }
+
+    .product-card .card-badge.green {
+      background: var(--ocean-green);
+    }
+
+    .product-card .card-actions {
+      display: flex;
+      height: 45px;
+    }
+
+    .product-card .card-action-btn {
+      border: 1px solid var(--cultured);
+      width: 45px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 8px;
+      background: var(--white);
+      color: var(--eerie-black);
+    }
+
+    .product-card .card-action-btn:is(:hover, :focus) {
+      border-color: var(--eerie-black);
+    }
+
+    .product-card .cart-btn {
+      flex-grow: 1;
+      background: var(--eerie-black);
+      color: var(--white);
+      border-color: var(--eerie-black);
+    }
+
+    .product-card .cart-btn:is(:hover, :focus) {
+      background: var(--white);
+      color: var(--eerie-black);
+    }
+
+    .product-card .card-action-btn ion-icon {
+      font-size: 20px;
+    }
+
+    .product-card .card-title {
+      margin-bottom: 5px;
+    }
+
+    .product-card .card-price {
+      color: var(--eerie-black);
+      font-size: var(--fs-8);
+      font-weight: var(--fw-500);
+    }
+
+    .product-card .card-price data:not(:first-child) {
+      color: var(--sonic-silver);
+      margin-left: 5px;
+      text-decoration: line-through;
+    }
+
+    .product .btn {
+      margin-inline: auto;
+    }
+
+
+
+
+
+    /*-----------------------------------*\
+* #BLOG
+\*-----------------------------------*/
+
+    .blog .section-title {
+      margin-bottom: 40px;
+    }
+
+    .blog-list {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: flex-start;
+      gap: 30px;
+    }
+
+    .blog-card .card-banner {
+      background: var(--cultured);
+      aspect-ratio: 2 / 1.37;
+      overflow: hidden;
+      margin-bottom: 25px;
+    }
+
+    .blog-card .card-banner img {
+      height: 100%;
+      object-fit: cover;
+      transition: var(--transition-2);
+    }
+
+    .blog-card:hover .card-banner img {
+      transform: scale(1.05);
+    }
+
+    .blog-card .card-content {
+      padding-inline: 20px;
+    }
+
+    .blog-card .card-meta-list {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 25px;
+      margin-bottom: 10px;
+    }
+
+    .blog-card .card-meta-item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .blog-card .card-meta-item ion-icon {
+      font-size: 17px;
+      --ionicon-stroke-width: 30px;
+    }
+
+    .blog-card .card-meta-link {
+      color: inherit;
+      font-size: var(--fs-9);
+      font-weight: var(--fw-500);
+      text-transform: uppercase;
+    }
+
+    .blog-card .card-meta-link:is(:hover, :focus) {
+      color: var(--eerie-black);
+    }
+
+    .blog-card .card-title {
+      line-height: 1.4;
+      text-align: center;
+    }
+
+
+
+
+
+    /*-----------------------------------*\
+* #NEWSLATTER
+\*-----------------------------------*/
+
+    .newsletter {
+      padding-bottom: 120px;
+    }
+
+    .newsletter-card {
+      background-color: var(--cultured);
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-position: left;
+      padding: 80px 15px;
+      text-align: center;
+    }
+
+    .newsletter-card .card-title {
+      color: var(--eerie-black);
+      font-size: var(--fs-3);
+      font-weight: var(--fw-500);
+      line-height: 1.2;
+      margin-bottom: 30px;
+    }
+
+    .newsletter-card .card-text {
+      margin-bottom: 30px;
+    }
+
+    .newsletter-card .input-wrapper {
+      position: relative;
+      margin-bottom: 20px;
+    }
+
+    .newsletter-card .input-field {
+      background: var(--white);
+      height: 60px;
+      padding-inline: 50px 20px;
+      border-radius: 6px;
+    }
+
+    .newsletter-card .input-wrapper ion-icon {
+      font-size: 18px;
+      position: absolute;
+      top: 50%;
+      left: 25px;
+      transform: translateY(-50%);
+    }
+
+    .newsletter-card .btn {
+      gap: 10px;
+    }
+
+
+
+
+
+    /*-----------------------------------*\
+* #FOOTER
+\*-----------------------------------*/
+
+    .footer-top {
+      background: var(--cultured);
+      padding-block: var(--section-padding);
+    }
+
+    .footer-top .container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 40px;
+    }
+
+    .footer .logo {
+      margin-bottom: 20px;
+    }
+
+    .footer-text {
+      line-height: 1.6;
+      margin-bottom: 20px;
+    }
+
+    .social-list {
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .social-link {
+      color: var(--eerie-black);
+      font-size: 18px;
+      width: 35px;
+      height: 35px;
+      border: 1px solid var(--sonic-silver);
+      display: grid;
+      place-items: center;
+      border-radius: 50%;
+    }
+
+    .social-link:is(:hover, :focus) {
+      background: var(--eerie-black);
+      color: var(--white);
+      border-color: var(--eerie-black);
+    }
+
+    .footer-list {
+      width: 100%;
+    }
+
+    .footer-list-title {
+      color: var(--eerie-black);
+      font-size: var(--fs-5);
+      font-weight: var(--fw-600);
+      margin-bottom: 15px;
+    }
+
+    .footer-link {
+      position: relative;
+      color: inherit;
+      padding-block: 5px;
+    }
+
+    .footer-link:is(:hover, :focus) {
+      color: var(--eerie-black);
+      transform: translateX(15px);
+    }
+
+    .footer-link::before {
+      content: "";
+      position: absolute;
+      top: 50%;
+      left: -15px;
+      transform: translateY(-50%) scale(var(--scale, 0));
+      transform-origin: right;
+      background: var(--sonic-silver);
+      width: 10px;
+      height: 2px;
+      transition: var(--transition-1);
+    }
+
+    .footer-link:is(:hover, :focus)::before {
+      --scale: 1;
+    }
+
+    .footer-bottom {
+      padding-block: 20px;
+    }
+
+    .footer-bottom a {
+      color: inherit;
+    }
+
+    .copyright {
+      margin-bottom: 15px;
+      text-align: center;
+    }
+
+    .copyright a {
+      display: inline-block;
+      color: var(--eerie-black);
+      font-weight: var(--fw-600);
+    }
+
+    .footer-bottom-list {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: center;
+      gap: 5px 15px;
+      margin-bottom: 15px;
+    }
+
+    .footer-bottom-link:is(:hover, :focus) {
+      color: var(--eerie-black);
+    }
+
+    .payment {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: center;
+      gap: 15px;
+    }
+
+
+
+
+
+    /*-----------------------------------*\
+* #MEDIA QUARIES
+\*-----------------------------------*/
+
+    /**
+* responsive for larger than 480px screen
+*/
+
+    @media (min-width: 480px) {
+
+      /**
+ * CUSTOM PROPERTY
+ */
+
+      :root {
+
+        /**
+   * typography
+   */
+
+        --fs-1: 3rem;
+        --fs-2: 2rem;
+
+      }
+
+
+
+      /**
+ * CATEGORY
+ */
+
+      .category-list>li {
+        width: calc(50% - 15px);
+      }
+
+
+
+      /**
+ * PRODUCT
+ */
+
+      .product-list>li {
+        width: calc(50% - 12.5px);
+      }
+
+
+
+      /**
+ * FOOTER
+ */
+
+      .footer-brand {
+        width: 100%;
+      }
+
+      .footer-text {
+        max-width: 470px;
+      }
+
+      .footer-list {
+        width: calc(50% - 20px);
+      }
+
+    }
+
+
+
+
+
+    /**
+* responsive for larger than 580px screen
+*/
+
+    @media (min-width: 580px) {
+
+      /**
+ * CUSTOM PROPERTY
+ */
+
+      :root {
+
+        /**
+   * typography
+   */
+
+        --fs-1: 3.75rem;
+        --fs-2: 2.375rem;
+        --fs-3: 2.25rem;
+
+      }
+
+
+
+      /**
+ * REUSED STYLE
+ */
+
+      .container {
+        max-width: 550px;
+        margin-inline: auto;
+      }
+
+    }
+
+
+
+
+
+    /**
+* responsive for larger than 768px screen
+*/
+
+    @media (min-width: 768px) {
+
+      /**
+ * REUSED STYLE
+ */
+
+      .container {
+        max-width: 700px;
+      }
+
+
+
+      /**
+ * HERO
+ */
+
+      .hero {
+        background-position: center;
+        min-height: 800px;
+      }
+
+
+
+      /**
+ * BLOG
+ */
+
+      .blog-list>li {
+        width: calc(50% - 15px);
+      }
+
+
+
+      /**
+ * NEWSLETTER
+ */
+
+      .newsletter-card>* {
+        max-width: 480px;
+        margin-inline: auto;
+      }
+
+      .newsletter-card .card-form {
+        position: relative;
+      }
+
+      .newsletter-card .input-wrapper {
+        margin-bottom: 0;
+      }
+
+      .newsletter-card .btn {
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        width: max-content;
+        padding-inline: 35px;
+        border-radius: 0 6px 6px 0;
+      }
+
+
+
+      /**
+ * FOOTER
+ */
+
+      .footer-list {
+        width: calc(33.33% - 26.66px);
+      }
+
+      .copyright,
+      .footer-bottom-list {
+        margin-bottom: 0;
+      }
+
+      .footer-bottom .container {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+        gap: 25px 50px;
+      }
+
+    }
+
+
+
+
+
+    /**
+* responsive for larger than 992px screen
+*/
+
+    @media (min-width: 992px) {
+
+      /**
+ * CUSTOM PROPERTY
+ */
+
+      :root {
+
+        /**
+   * typography
+   */
+
+        --fs-1: 5rem;
+
+      }
+
+
+
+      /**
+ * RESET
+ */
+
+      body {
+        padding-block: 0;
+      }
+
+
+
+      /**
+ * REUSED STYLE
+ */
+
+      .container {
+        max-width: 950px;
+      }
+
+
+
+      /**
+ * HEADER
+ */
+
+      .header {
+        position: relative;
+        padding-block: 15px;
+        border-bottom: 1px solid hsla(0, 0%, 0%, 0.1);
+        margin-bottom: 67px;
+      }
+
+      .header.active {
+        position: relative;
+        box-shadow: none;
+      }
+
+      .header .container {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        align-items: center;
+      }
+
+      .header-search {
+        display: block;
+        position: relative;
+        width: max-content;
+      }
+
+      .header-search .input-field {
+        border: 1px solid hsla(0, 0%, 0%, 0.1);
+        width: 280px;
+        padding: 12px 30px;
+        border-radius: 6px;
+        transition: var(--transition-1);
+      }
+
+      .header-search .input-field:focus {
+        outline: 1px solid var(--eerie-black);
+      }
+
+      .header-search .search-btn {
+        position: absolute;
+        top: 50%;
+        right: 15px;
+        transform: translateY(-50%);
+        font-size: 20px;
+        color: var(--eerie-black);
+      }
+
+      .header-search .search-btn ion-icon {
+        --ionicon-stroke-width: 30px;
+      }
+
+      .header .logo {
+        margin-inline: auto;
+      }
+
+      .nav-open-btn,
+      .header-action-btn:nth-child(2),
+      .navbar-top,
+      .overlay {
+        display: none;
+      }
+
+      .header-actions {
+        all: unset;
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        gap: 15px;
+      }
+
+      .navbar {
+        all: unset;
+        position: absolute;
+        top: calc(100% + 1px);
+        left: 0;
+        width: 100%;
+        background: var(--white);
+      }
+
+      .header.active .navbar {
+        position: fixed;
+        top: 0;
+        box-shadow: 0 2px 20px hsla(0, 0%, 0%, 0.1);
+      }
+
+      .navbar-list {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 40px;
+      }
+
+      .navbar-list>li:not(:last-child) {
+        border-bottom: none;
+      }
+
+      .navbar-link {
+        font-size: var(--fs-7);
+        font-weight: var(--fw-500);
+        padding-block: 20px;
+      }
+
+      .navbar-link:is(:hover, :focus) {
+        color: var(--middle-blue-green);
+      }
+
+
+
+      /**
+ * CATEGORY
+ */
+
+      .category-list>li:not(:first-child, :nth-child(2)) {
+        width: calc(25% - 22.5px);
+      }
+
+
+
+      /**
+ * PRODUCT
+ */
+
+      .product-list>li {
+        width: calc(33.33% - 16.66px);
+      }
+
+      .product-card .card-actions {
+        position: absolute;
+        bottom: 20px;
+        left: 20px;
+        right: 20px;
+        transform: translateY(100px);
+        visibility: hidden;
+        transition: var(--transition-1);
+      }
+
+      .product-card .card-banner {
+        overflow: hidden;
+      }
+
+      .product-card .card-banner:hover .card-actions {
+        visibility: visible;
+        transform: translateY(0);
+      }
+
+      .product-card .card-action-btn:first-child {
+        border-radius: 6px 0 0 6px;
+      }
+
+      .product-card .card-action-btn:last-child {
+        border-radius: 0 6px 6px 0;
+      }
+
+
+
+      /**
+ * BLOG
+ */
+
+      .blog-list>li {
+        width: calc(33.33% - 20px);
+      }
+
+
+
+      /**
+ * NEWSLETTER
+ */
+
+      .newsletter-card .card-form {
+        max-width: 650px;
+        background-image: "{% static 'images/newsletter-bg.png' %}";
+      }
+
+    }
+
+
+
+
+
+    /**
+* responsive for larger than 1200px screen
+*/
+
+    @media (min-width: 1200px) {
+
+      /**
+ * CUSTOM PROPERTY
+ */
+
+      :root {
+
+        /**
+   * typography
+   */
+
+        --fs-1: 6.25rem;
+
+      }
+
+
+
+      /**
+ * REUSED STYLE
+ */
+
+      .container {
+        max-width: 1150px;
+      }
+
+
+
+      /**
+ * HEADER
+ */
+
+      .header-search .input-field {
+        width: 350px;
+      }
+
+
+
+      /**
+ * PRODUCT
+ */
+
+      .product-list>li {
+        width: calc(25% - 18.75px);
+      }
+
+
+
+      /**
+ * FOOTER
+ */
+
+      .footer-brand {
+        width: calc(40% - 30px);
+      }
+
+      .footer-text {
+        max-width: 340px;
+      }
+
+      .footer-list {
+        width: calc(20% - 30px);
+      }
+
+      .footer-bottom .container {
+        justify-content: space-between;
+      }
+
+    }
+
+    .hero {
+      background-image: url("{% static 'images/hero-banner.jpg' %}");
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- 
+    - #HEADER
+  -->
+
+  <header class="header" data-header>
+    <div class="container">
+
+      <div class="overlay" data-overlay></div>
+
+      <div class="header-search">
+        <input type="search" name="search" placeholder="Search Product..." class="input-field">
+
+        <button class="search-btn" aria-label="Search">
+          <ion-icon name="search-outline"></ion-icon>
+        </button>
+      </div>
+
+      <a href="#" class="logo">
+        <img src="{% static 'images/logo.svg' %}" alt="Casmart logo" width="130" height="31">
+      </a>
+
+      <div class="header-actions">
+
+        <button onclick="logout()" class="header-action-btn">
+          <ion-icon name="person-outline" aria-hidden="true"></ion-icon>
+
+          <a class="header-action-label">Sign out</p>
+        </button>
+
+        <button class="header-action-btn">
+          <ion-icon name="search-outline" aria-hidden="true"></ion-icon>
+
+          <p class="header-action-label">Search</p>
+        </button>
+
+  
+
+        <button class="header-action-btn">
+          <ion-icon name="heart-outline" aria-hidden="true"></ion-icon>
+
+          <p class="header-action-label">Wishlisht</p>
+
+          <div class="btn-badge" aria-hidden="true">2</div>
+        </button>
+
+      </div>
+
+      <button class="nav-open-btn" data-nav-open-btn aria-label="Open Menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+
+      <nav class="navbar" data-navbar>
+
+        <div class="navbar-top">
+
+          <a href="#" class="logo">
+            <img src="{% static 'images/logo.svg' %}" alt="Casmart logo" width="130" height="31">
+          </a>
+
+          <button class="nav-close-btn" data-nav-close-btn aria-label="Close Menu">
+            <ion-icon name="close-outline"></ion-icon>
+          </button>
+
+        </div>
+
+        <ul class="navbar-list">
+
+          <li>
+            <a href="home" class="navbar-link">Home</a>
+          </li>
+
+          <li>
+            <a href="#" class="navbar-link">Shop</a>
+          </li>
+
+          <li>
+            <a href="/aboutus" class="navbar-link">About</a>
+          </li>
+
+          <li>
+            <a href="/contactus" class="navbar-link">Contact</a>
+          </li>
+
+        </ul>
+
+      </nav>
+
+    </div>
+  </header>
+
+
+
+
+
+  <main>
+    <article>
+
+      <!-- 
+        - #HERO
+      -->
+
+      <section class="hero" id="home">
+        <div class="container">
+
+          <div class="hero-content">
+
+            <p class="hero-subtitle">Fashion Everyday</p>
+
+            <h2 class="h1 hero-title">Unrivalled Fashion House</h2>
+
+            <button class="btn btn-primary">Shop Now</button>
+
+          </div>
+
+        </div>
+      </section>
+
+
+
+
+
+      <!-- 
+        - #SERVICE
+      -->
+
+      <section class="service">
+        <div class="container">
+
+          <ul class="service-list">
+
+            <li class="service-item">
+              <div class="service-item-icon">
+                <img src="{% static 'images/service-icon-1.svg' %}" alt="Service icon">
+              </div>
+
+              <div class="service-content">
+                <p class="service-item-title">Free Shipping</p>
+
+                <p class="service-item-text">On All Order Over ₹599</p>
+              </div>
+            </li>
+
+            <li class="service-item">
+              <div class="service-item-icon">
+                <img src="{% static 'images/service-icon-2.svg' %}" alt="Service icon">
+              </div>
+
+              <div class="service-content">
+                <p class="service-item-title">Easy Returns</p>
+
+                <p class="service-item-text">30 Day Returns Policy</p>
+              </div>
+            </li>
+
+            <li class="service-item">
+              <div class="service-item-icon">
+                <img src="{% static 'images/service-icon-3.svg' %}" alt="Service icon">
+              </div>
+
+              <div class="service-content">
+                <p class="service-item-title">Secure Payment</p>
+
+                <p class="service-item-text">100% Secure Gaurantee</p>
+              </div>
+            </li>
+
+            <li class="service-item">
+              <div class="service-item-icon">
+                <img src="{% static 'images/service-icon-4.svg' %}" alt="Service icon">
+              </div>
+
+              <div class="service-content">
+                <p class="service-item-title">Special Support</p>
+
+                <p class="service-item-text">24/7 Dedicated Support</p>
+              </div>
+            </li>
+
+          </ul>
+
+        </div>
+      </section>
+
+
+
+
+
+      <!-- 
+        - #CATEGORY
+      -->
+
+      <section class="section category">
+        <div class="container">
+
+          <ul class="category-list">
+
+            <li class="category-item">
+              <figure class="category-banner">
+                <img src="{% static 'images/category-1.jpg' %}" alt="Sunglass & eye" loading="lazy" width="510"
+                  height="600" class="w-100">
+              </figure>
+
+              <a href="#" class="btn btn-secondary">Sunglass & Eye</a>
+            </li>
+
+            <li class="category-item">
+              <figure class="category-banner">
+                <img src="{% static 'images/category-2.jpg' %}" alt="Active & outdoor" loading="lazy" width="510"
+                  height="600" class="w-100">
+              </figure>
+
+              <a href="#" class="btn btn-secondary">Active & Outdoor</a>
+            </li>
+
+            <li class="category-item">
+              <figure class="category-banner">
+                <img src="{% static 'images/category-3.jpg' %}" alt="Winter wear" loading="lazy" width="510"
+                  height="600" class="w-100">
+              </figure>
+
+              <a href="#" class="btn btn-secondary">Winter Wear</a>
+            </li>
+
+            <li class="category-item">
+              <figure class="category-banner">
+                <img src="{% static 'images/category-4.jpg' %}" alt="Exclusive footwear" loading="lazy" width="510"
+                  height="600" class="w-100">
+              </figure>
+
+              <a href="#" class="btn btn-secondary">Exclusive Footwear</a>
+            </li>
+
+            <li class="category-item">
+              <figure class="category-banner">
+                <img src="{% static 'images/category-5.jpg' %}" alt="Jewelry" loading="lazy" width="510" height="600"
+                  class="w-100">
+              </figure>
+
+              <a href="#" class="btn btn-secondary">Jewelry</a>
+            </li>
+
+            <li class="category-item">
+              <figure class="category-banner">
+                <img src="{% static 'images/category-6.jpg' %}" alt="Sports cap" loading="lazy" width="510" height="600"
+                  class="w-100">
+              </figure>
+
+              <a href="#" class="btn btn-secondary">Sports Cap</a>
+            </li>
+
+          </ul>
+
+        </div>
+      </section>
+
+
+
+
+
+      <!-- 
+        - #PRODUCT
+      -->
+
+      <section class="section product">
+        <div class="container">
+
+          <h2 class="h2 section-title">Products of the week</h2>
+
+          <ul class="filter-list">
+
+            <li>
+              <button class="filter-btn  active">Best Seller</button>
+            </li>
+
+            <li>
+              <button class="filter-btn">Hot Collection</button>
+            </li>
+
+            <li>
+              <button class="filter-btn">Trendy</button>
+            </li>
+
+            <li>
+              <button class="filter-btn">New Arrival</button>
+            </li>
+
+          </ul>
+
+          <ul class="product-list">
+
+            <li>
+              <div class="product-card">
+
+                <figure class="card-banner">
+
+                  <a href="item/1">
+                    <img src="{% static 'images/product-1.jpg' %}" alt="Varsi Leather Bag" loading="lazy" width="800"
+                      height="1034" class="w-100">
+                  </a>
+
+                  <div class="card-badge red"> -25%</div>
+
+                  <div class="card-actions">
+
+                    <button class="card-action-btn" aria-label="Quick view">
+                      <ion-icon name="eye-outline"></ion-icon>
+                    </button>
+
+                    <button class="card-action-btn cart-btn">
+                      <ion-icon name="bag-handle-outline" aria-hidden="true"></ion-icon>
+
+                      <p>Add to Cart</p>
+                    </button>
+
+                    <button class="card-action-btn" aria-label="Add to Whishlist">
+                      <ion-icon name="heart-outline"></ion-icon>
+                    </button>
+
+                  </div>
+
+                </figure>
+
+                <div class="card-content">
+                  <h3 class="h4 card-title">
+                    <a href="item/1">Varsi Leather Bag</a>
+                  </h3>
+
+                  <div class="card-price">
+                    <data value="48.75">₹1999</data>
+
+                    <data value="65.00">₹3500</data>
+                  </div>
+                </div>
+
+              </div>
+            </li>
+
+            <li>
+              <div class="product-card">
+
+                <figure class="card-banner">
+
+                  <a href="item/2">
+                    <img src="{% static 'images/product-2.jpg' %}" alt="Fit Twill Shirt for Woman" loading="lazy"
+                      width="800" height="1034" class="w-100">
+                  </a>
+
+                  <div class="card-badge green"> New</div>
+
+                  <div class="card-actions">
+
+                    <button class="card-action-btn" aria-label="Quick view">
+                      <ion-icon name="eye-outline"></ion-icon>
+                    </button>
+
+                    <button class="card-action-btn cart-btn">
+                      <ion-icon name="bag-handle-outline" aria-hidden="true"></ion-icon>
+
+                      <p>Add to Cart</p>
+                    </button>
+
+                    <button class="card-action-btn" aria-label="Add to Whishlist">
+                      <ion-icon name="heart-outline"></ion-icon>
+                    </button>
+
+                  </div>
+
+                </figure>
+
+                <div class="card-content">
+                  <h3 class="h4 card-title">
+                    <a href="item/2">Fit Twill Shirt for Woman</a>
+                  </h3>
+
+                  <div class="card-price">
+                    <data value="62.00">₹3500</data>
+                  </div>
+                </div>
+
+              </div>
+            </li>
+
+            <li>
+              <div class="product-card">
+
+                <figure class="card-banner">
+
+                  <a href="item/3">
+                    <img src="{% static 'images/product-3.jpg' %}" alt="Grand Atlantic Chukka Boots" loading="lazy"
+                      width="800" height="1034" class="w-100">
+                  </a>
+
+                  <div class="card-actions">
+
+                    <button class="card-action-btn" aria-label="Quick view">
+                      <ion-icon name="eye-outline"></ion-icon>
+                    </button>
+
+                    <button class="card-action-btn cart-btn">
+                      <ion-icon name="bag-handle-outline" aria-hidden="true"></ion-icon>
+
+                      <p>Add to Cart</p>
+                    </button>
+
+                    <button class="card-action-btn" aria-label="Add to Whishlist">
+                      <ion-icon name="heart-outline"></ion-icon>
+                    </button>
+
+                  </div>
+
+                </figure>
+
+                <div class="card-content">
+                  <h3 class="h4 card-title">
+                    <a href="item/3">Grand Atlantic Chukka Boots</a>
+                  </h3>
+
+                  <div class="card-price">
+                    <data value="32.00">₹35000</data>
+                  </div>
+                </div>
+
+              </div>
+            </li>
+
+            <li>
+              <div class="product-card">
+
+                <figure class="card-banner">
+
+                  <a href="item/4">
+                    <img src="{% static 'images/product-4.jpg' %}" alt="Women's Faux-Trim Shirt" loading="lazy"
+                      width="800" height="1034" class="w-100">
+                  </a>
+
+                  <div class="card-actions">
+
+                    <button class="card-action-btn" aria-label="Quick view">
+                      <ion-icon name="eye-outline"></ion-icon>
+                    </button>
+
+                    <button class="card-action-btn cart-btn">
+                      <ion-icon name="bag-handle-outline" aria-hidden="true"></ion-icon>
+
+                      <p>Add to Cart</p>
+                    </button>
+
+                    <button class="card-action-btn" aria-label="Add to Whishlist">
+                      <ion-icon name="heart-outline"></ion-icon>
+                    </button>
+
+                  </div>
+
+                </figure>
+
+                <div class="card-content">
+                  <h3 class="h4 card-title">
+                    <a href="item/4">Women's Faux-Trim Shirt</a>
+                  </h3>
+
+                  <div class="card-price">
+                    <data value="84.00">₹1299</data>
+                  </div>
+                </div>
+
+              </div>
+            </li>
+
+            <li>
+              <div class="product-card">
+
+                <figure class="card-banner">
+
+                  <a href="#">
+                    <img src="{% static 'images/product-5.jpg' %}" alt="Soft Touch Interlock Polo" loading="lazy"
+                      width="800" height="1034" class="w-100">
+                  </a>
+
+                  <div class="card-actions">
+
+                    <button class="card-action-btn" aria-label="Quick view">
+                      <ion-icon name="eye-outline"></ion-icon>
+                    </button>
+
+                    <button class="card-action-btn cart-btn">
+                      <ion-icon name="bag-handle-outline" aria-hidden="true"></ion-icon>
+
+                      <p>Add to Cart</p>
+                    </button>
+
+                    <button class="card-action-btn" aria-label="Add to Whishlist">
+                      <ion-icon name="heart-outline"></ion-icon>
+                    </button>
+
+                  </div>
+
+                </figure>
+
+                <div class="card-content">
+                  <h3 class="h4 card-title">
+                    <a href="#">Soft Touch Interlock Polo</a>
+                  </h3>
+
+                  <div class="card-price">
+                    <data value="45.00">₹2500</data>
+                  </div>
+                </div>
+
+              </div>
+            </li>
+
+            <li>
+              <div class="product-card">
+
+                <figure class="card-banner">
+
+                  <a href="#">
+                    <img src="{% static 'images/product-6.jpg' %}" alt="Casmart Smart Watch" loading="lazy" width="800"
+                      height="1034" class="w-100">
+                  </a>
+
+                  <div class="card-actions">
+
+                    <button class="card-action-btn" aria-label="Quick view">
+                      <ion-icon name="eye-outline"></ion-icon>
+                    </button>
+
+                    <button class="card-action-btn cart-btn">
+                      <ion-icon name="bag-handle-outline" aria-hidden="true"></ion-icon>
+
+                      <p>Add to Cart</p>
+                    </button>
+
+                    <button class="card-action-btn" aria-label="Add to Whishlist">
+                      <ion-icon name="heart-outline"></ion-icon>
+                    </button>
+
+                  </div>
+
+                </figure>
+
+                <div class="card-content">
+                  <h3 class="h4 card-title">
+                    <a href="#">Casmart Smart Watch</a>
+                  </h3>
+
+                  <div class="card-price">
+                    <data value="30.00">₹5000</data>
+
+                    <data value="38.00">₹5300</data>
+                  </div>
+                </div>
+
+              </div>
+            </li>
+
+            <li>
+              <div class="product-card">
+
+                <figure class="card-banner">
+
+                  <a href="#">
+                    <img src="{% static 'images/product-7.jpg' %}" alt="Casmart Smart Glass" loading="lazy" width="800"
+                      height="1034" class="w-100">
+                  </a>
+
+                  <div class="card-actions">
+
+                    <button class="card-action-btn" aria-label="Quick view">
+                      <ion-icon name="eye-outline"></ion-icon>
+                    </button>
+
+                    <button class="card-action-btn cart-btn">
+                      <ion-icon name="bag-handle-outline" aria-hidden="true"></ion-icon>
+
+                      <p>Add to Cart</p>
+                    </button>
+
+                    <button class="card-action-btn" aria-label="Add to Whishlist">
+                      <ion-icon name="heart-outline"></ion-icon>
+                    </button>
+
+                  </div>
+
+                </figure>
+
+                <div class="card-content">
+                  <h3 class="h4 card-title">
+                    <a href="#">Casmart Smart Glass</a>
+                  </h3>
+
+                  <div class="card-price">
+                    <data value="25.00">₹2500</data>
+
+                    <data value="39.00">₹3200</data>
+                  </div>
+                </div>
+
+              </div>
+            </li>
+
+            <li>
+              <div class="product-card">
+
+                <figure class="card-banner">
+
+                  <a href="#">
+                    <img src="{% static 'images/product-8.jpg' %}" alt="Cotton Shirt for Men" loading="lazy" width="800"
+                      height="1034" class="w-100">
+                  </a>
+
+                  <div class="card-actions">
+
+                    <button class="card-action-btn" aria-label="Quick view">
+                      <ion-icon name="eye-outline"></ion-icon>
+                    </button>
+
+                    <button class="card-action-btn cart-btn">
+                      <ion-icon name="bag-handle-outline" aria-hidden="true"></ion-icon>
+
+                      <p>Add to Cart</p>
+                    </button>
+
+                    <button class="card-action-btn" aria-label="Add to Whishlist">
+                      <ion-icon name="heart-outline"></ion-icon>
+                    </button>
+
+                  </div>
+
+                </figure>
+
+                <div class="card-content">
+                  <h3 class="h4 card-title">
+                    <a href="#">Cotton Shirt for Men</a>
+                  </h3>
+
+                  <div class="card-price">
+                    <data value="85.00">₹4500</data>
+
+                    <data value="99.00">₹5900</data>
+                  </div>
+                </div>
+
+              </div>
+            </li>
+
+            <li>
+              <div class="product-card">
+
+                <figure class="card-banner">
+
+                  <a href="#">
+                    <img src="{% static 'images/product-9.jpg' %}" alt="Double-breasted Blazer" loading="lazy"
+                      width="800" height="1034" class="w-100">
+                  </a>
+
+                  <div class="card-actions">
+
+                    <button class="card-action-btn" aria-label="Quick view">
+                      <ion-icon name="eye-outline"></ion-icon>
+                    </button>
+
+                    <button class="card-action-btn cart-btn">
+                      <ion-icon name="bag-handle-outline" aria-hidden="true"></ion-icon>
+
+                      <p>Add to Cart</p>
+                    </button>
+
+                    <button class="card-action-btn" aria-label="Add to Whishlist">
+                      <ion-icon name="heart-outline"></ion-icon>
+                    </button>
+
+                  </div>
+
+                </figure>
+
+                <div class="card-content">
+                  <h3 class="h4 card-title">
+                    <a href="#">Double-breasted Blazer</a>
+                  </h3>
+
+                  <div class="card-price">
+                    <data value="32.00">₹3200</data>
+                  </div>
+                </div>
+
+              </div>
+            </li>
+
+            <li>
+              <div class="product-card">
+
+                <figure class="card-banner">
+
+                  <a href="#">
+                    <img src="{% static 'images/product-10.jpg' %}" alt="Ribbed Cotton Bodysuits" loading="lazy"
+                      width="800" height="1034" class="w-100">
+                  </a>
+
+                  <div class="card-badge green">New</div>
+
+                  <div class="card-actions">
+
+                    <button class="card-action-btn" aria-label="Quick view">
+                      <ion-icon name="eye-outline"></ion-icon>
+                    </button>
+
+                    <button class="card-action-btn cart-btn">
+                      <ion-icon name="bag-handle-outline" aria-hidden="true"></ion-icon>
+
+                      <p>Add to Cart</p>
+                    </button>
+
+                    <button class="card-action-btn" aria-label="Add to Whishlist">
+                      <ion-icon name="heart-outline"></ion-icon>
+                    </button>
+
+                  </div>
+
+                </figure>
+
+                <div class="card-content">
+                  <h3 class="h4 card-title">
+                    <a href="#">Ribbed Cotton Bodysuits</a>
+                  </h3>
+
+                  <div class="card-price">
+                    <data value="71.00">₹4100</data>
+                  </div>
+                </div>
+
+              </div>
+            </li>
+
+          </ul>
+
+          <button class="btn btn-outline">View All Products</button>
+
+        </div>
+      </section>
+
+
+
+
+
+      <!-- 
+        - #BLOG
+      -->
+
+      <section class="section blog">
+        <div class="container">
+
+          <h2 class="h2 section-title">Latest fashion news</h2>
+
+          <ul class="blog-list">
+
+            <li>
+              <div class="blog-card">
+
+                <figure class="card-banner">
+                  <a href="#">
+                    <img src="{% static 'images/blog-1.jpg' %}" alt="Worthy Cyber Monday Fashion From Casmart"
+                      loading="lazy" width="1020" height="700" class="w-100">
+                  </a>
+                </figure>
+
+                <div class="card-content">
+
+                  <ul class="card-meta-list">
+
+                    <li class="card-meta-item">
+                      <ion-icon name="folder-open-outline"></ion-icon>
+
+                      <a href="#" class="card-meta-link">Fashion</a>
+                    </li>
+
+                    <li class="card-meta-item">
+                      <ion-icon name="time-outline"></ion-icon>
+
+                      <a href="#" class="card-meta-link">
+                        <time datetime="2021-03-31">31 Mar 2021</time>
+                      </a>
+                    </li>
+
+                  </ul>
+
+                  <h3 class="h3 card-title">
+                    <a href="#">Worthy Cyber Monday Fashion From Casmart</a>
+                  </h3>
+
+                </div>
+
+              </div>
+            </li>
+
+            <li>
+              <div class="blog-card">
+
+                <figure class="card-banner">
+                  <a href="#">
+                    <img src="{% static 'images/blog-2.jpg' %}" alt="Holiday Home Decoration I’ve Recently Ordered"
+                      loading="lazy" width="1020" height="700" class="w-100">
+                  </a>
+                </figure>
+
+                <div class="card-content">
+
+                  <ul class="card-meta-list">
+
+                    <li class="card-meta-item">
+                      <ion-icon name="folder-open-outline"></ion-icon>
+
+                      <a href="#" class="card-meta-link">Fashion</a>
+                    </li>
+
+                    <li class="card-meta-item">
+                      <ion-icon name="time-outline"></ion-icon>
+
+                      <a href="#" class="card-meta-link">
+                        <time datetime="2021-03-31">31 Mar 2021</time>
+                      </a>
+                    </li>
+
+                  </ul>
+
+                  <h3 class="h3 card-title">
+                    <a href="#">Holiday Home Decoration I’ve Recently Ordered</a>
+                  </h3>
+
+                </div>
+
+              </div>
+            </li>
+
+            <li>
+              <div class="blog-card">
+
+                <figure class="card-banner">
+                  <a href="#">
+                    <img src="{% static 'images/blog-3.jpg' %}" alt="Unique Ideas for Fashion You Haven’t heard yet"
+                      loading="lazy" width="1020" height="700" class="w-100">
+                  </a>
+                </figure>
+
+                <div class="card-content">
+
+                  <ul class="card-meta-list">
+
+                    <li class="card-meta-item">
+                      <ion-icon name="folder-open-outline"></ion-icon>
+
+                      <a href="#" class="card-meta-link">Fashion</a>
+                    </li>
+
+                    <li class="card-meta-item">
+                      <ion-icon name="time-outline"></ion-icon>
+
+                      <a href="#" class="card-meta-link">
+                        <time datetime="2021-03-31">31 Mar 2021</time>
+                      </a>
+                    </li>
+
+                  </ul>
+
+                  <h3 class="h3 card-title">
+                    <a href="#">Unique Ideas for Fashion You Haven’t heard yet</a>
+                  </h3>
+
+                </div>
+
+              </div>
+            </li>
+
+          </ul>
+
+        </div>
+      </section>
+
+
+
+
+
+      <!-- 
+        - #NEWSLETTER
+      -->
+
+      <section class="section newsletter">
+        <div class="container">
+
+          <div class="newsletter-card">
+
+            <h2 class="card-title">Subscribe Newsletter</h2>
+
+            <p class="card-text">
+              Enter your email below to be the first to know about new collections and product launches.
+            </p>
+
+            <form action="" class="card-form">
+
+              <div class="input-wrapper">
+                <ion-icon name="mail-outline"></ion-icon>
+
+                <input type="email" name="emal" placeholder="Enter your email" required class="input-field">
+              </div>
+
+              <button type="submit" class="btn btn-primary w-100">
+                <span>Subscribe</span>
+
+                <ion-icon name="arrow-forward" aria-hidden="true"></ion-icon>
+              </button>
+
+            </form>
+
+          </div>
+
+        </div>
+      </section>
+
+    </article>
+  </main>
+
+
+
+
+
+  <!-- 
+    - #FOOTER
+  -->
+
+  <footer class="footer">
+
+    <div class="footer-top">
+      <div class="container">
+
+        <div class="footer-brand">
+
+          <a href="#" class="logo">
+            <img src="{% static 'images/logo.svg' %}" alt="Casmart logo">
+          </a>
+
+          <p class="footer-text">
+            Casmart is a fashion theme for presents a complete wardrobe of uniquely crafted Ethnic Wear, Casuals, Edgy
+            Denims, &
+            Accessories inspired from the most contemporary
+          </p>
+
+          <ul class="social-list">
+
+            <li>
+              <a href="#" class="social-link">
+                <ion-icon name="logo-facebook"></ion-icon>
+              </a>
+            </li>
+
+            <li>
+              <a href="#" class="social-link">
+                <ion-icon name="logo-twitter"></ion-icon>
+              </a>
+            </li>
+
+            <li>
+              <a href="#" class="social-link">
+                <ion-icon name="logo-instagram"></ion-icon>
+              </a>
+            </li>
+
+            <li>
+              <a href="#" class="social-link">
+                <ion-icon name="logo-pinterest"></ion-icon>
+              </a>
+            </li>
+
+          </ul>
+
+        </div>
+
+        <ul class="footer-list">
+
+          <li>
+            <p class="footer-list-title">Information</p>
+          </li>
+
+          <li>
+            <a href="#" class="footer-link">About Company</a>
+          </li>
+
+          <li>
+            <a href="#" class="footer-link">Payment Type</a>
+          </li>
+
+          <li>
+            <a href="#" class="footer-link">Awards Winning</a>
+          </li>
+
+          <li>
+            <a href="#" class="footer-link">World Media Partner</a>
+          </li>
+
+          <li>
+            <a href="#" class="footer-link">Become an Agent</a>
+          </li>
+
+          <li>
+            <a href="#" class="footer-link">Refund Policy</a>
+          </li>
+
+        </ul>
+
+        <ul class="footer-list">
+
+          <li>
+            <p class="footer-list-title">Category</p>
+          </li>
+
+          <li>
+            <a href="#" class="footer-link">Handbags & Wallets</a>
+          </li>
+
+          <li>
+            <a href="#" class="footer-link">Women's Clothing</a>
+          </li>
+
+          <li>
+            <a href="#" class="footer-link">Plus Sizes</a>
+          </li>
+
+          <li>
+            <a href="#" class="footer-link">Complete Your Look</a>
+          </li>
+
+          <li>
+            <a href="#" class="footer-link">Baby Corner</a>
+          </li>
+
+          <li>
+            <a href="#" class="footer-link">Man & Woman Shoe</a>
+          </li>
+
+        </ul>
+
+        <ul class="footer-list">
+
+          <li>
+            <p class="footer-list-title">Help & Support</p>
+          </li>
+
+          <li>
+            <a href="#" class="footer-link">Dealers & Agents</a>
+          </li>
+
+          <li>
+            <a href="#" class="footer-link">FAQ Information</a>
+          </li>
+
+          <li>
+            <a href="#" class="footer-link">Return Policy</a>
+          </li>
+
+          <li>
+            <a href="#" class="footer-link">Shipping & Delivery</a>
+          </li>
+
+          <li>
+            <a href="#" class="footer-link">Order Tranking</a>
+          </li>
+
+          <li>
+            <a href="#" class="footer-link">List of Shops</a>
+          </li>
+
+        </ul>
+
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <div class="container">
+
+        <p class="copyright">
+          &copy; 2022 <a href="#">codewithsadee</a>. All Rights Reserved
+        </p>
+
+        <ul class="footer-bottom-list">
+
+          <li>
+            <a href="#" class="footer-bottom-link">Privacy Policy</a>
+          </li>
+
+          <li>
+            <a href="#" class="footer-bottom-link">Terms & Conditions</a>
+          </li>
+
+          <li>
+            <a href="#" class="footer-bottom-link">Sitemap</a>
+          </li>
+
+        </ul>
+
+        <div class="payment">
+          <p class="payment-title">We Support</p>
+
+          <img src="{% static 'images/payment-img.png' %}" alt="Online payment logos" class="payment-img">
+        </div>
+
+      </div>
+    </div>
+
+  </footer>
+
+
+
+
+
+  <!-- 
+    - custom js link
+  -->
+  <script>'use strict';
+
+    /**
+     * navbar toggle
+     */
+
+    const overlay = document.querySelector("[data-overlay]");
+    const navOpenBtn = document.querySelector("[data-nav-open-btn]");
+    const navbar = document.querySelector("[data-navbar]");
+    const navCloseBtn = document.querySelector("[data-nav-close-btn]");
+
+    const navElemArr = [overlay, navOpenBtn, navCloseBtn];
+
+    for (let i = 0; i < navElemArr.length; i++) {
+      navElemArr[i].addEventListener("click", function () {
+        navbar.classList.toggle("active");
+        overlay.classList.toggle("active");
+      });
+    }
+
+
+
+    /**
+     * add active class on header when scrolled 200px from top
+     */
+
+    const header = document.querySelector("[data-header]");
+
+    window.addEventListener("scroll", function () {
+      window.scrollY >= 200 ? header.classList.add("active")
+        : header.classList.remove("active");
+    })
+    function logout() {
+      location.replace("/logout")
+    }
+
+  </script>
+
+  <!-- 
+    - ionicon link
+  -->
+  <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+
+</body>
+
+</html>

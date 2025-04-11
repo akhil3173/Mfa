@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Silkscreen&display=swap" rel="stylesheet">
+    <title>ThreatHub FAQ</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 20px;
+            background-color: #080708;
+            color: #fff;
+        }
+
+        header {
+            background-color: #000;
+            padding: 5px;
+            display: flex;
+        }
+
+        #logo {
+            margin-left: 40%;
+            color: #fdca40;
+            text-decoration: none;
+            font-size: 40px;
+            font-weight: bold;
+            font-family: 'Silkscreen', sans-serif;
+        }
+
+
+        .menu:hover {
+            color: #fdca40;
+        }
+
+        .sidenav {
+            height: 100%;
+            width: 0;
+            position: fixed;
+            z-index: 1;
+            top: 0;
+            left: 0;
+            background-color: black;
+            overflow-x: hidden;
+            transition: 0.5s;
+            padding-top: 60px;
+        }
+
+        .sidenav a {
+            padding: 8px 8px 8px 32px;
+            text-decoration: none;
+            font-size: 25px;
+            color: white;
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+            display: block;
+            transition: 0.3s;
+        }
+
+        .sidenav a:hover {
+            color: #fdca40;
+        }
+
+        .sidenav .closebtn {
+            position: absolute;
+            top: 0;
+            right: 25px;
+            font-size: 36px;
+            margin-left: 50px;
+        }
+
+        @media screen and (max-height: 450px) {
+            .sidenav {
+                padding-top: 15px;
+            }
+
+            .sidenav a {
+                font-size: 18px;
+            }
+
+        }
+
+        nav {
+            background-color: #080708;
+            color: #fff;
+            padding: 10px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 10px;
+        }
+
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            padding: 8px 16px;
+            display: inline-block;
+        }
+
+        nav a:hover {
+            background-color: #080708;
+            color: #fdca40;
+        }
+
+        h1,
+        h2 {
+            color: #333;
+        }
+
+        .faq-section {
+            margin-bottom: 30px;
+            border: 1px solid #ddd;
+            background-color: lightyellow;
+            padding: 20px;
+            border-radius: 8px;
+        }
+
+        .question {
+            font-weight: bold;
+            margin-bottom: 10px;
+            color: #080708;
+        }
+
+        .answer {
+            margin-bottom: 20px;
+            color: #080708;
+        }
+
+        h1 {
+            color: #fdca40;
+        }
+
+        footer {
+            background-color: black;
+            color: white;
+            display: flex;
+            justify-content: space-between;
+            padding: 10px;
+            font-family: Arial, sans-serif;
+        }
+
+        .copyright {
+            font-size: 30px;
+            padding: 20px;
+            font-family: Arial, Helvetica, sans-serif;
+            color: #fdca40;
+        }
+
+        .social-media {
+            display: flex;
+            padding: 20px;
+            gap: 30px;
+        }
+
+        .instagram,
+        .twitter {
+            font-weight: bold;
+            text-decoration: underline;
+            cursor: pointer;
+        }
+
+        .instagram:hover,
+        .twitter:hover {
+            color: #fdca40;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div id="mySidenav" class="sidenav">
+            <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+            <a href="/aboutus">About</a>
+            <a href="/faq">FAQ</a>
+            <a href="/terms">Terms and Conditions</a>
+            <a href="/contactus">Contact</a>
+        </div>
+        <span class="menu" style="font-size:30px;cursor:pointer;" onclick="openNav()">&#9776;</span>
+
+        <a href="#" id="logo">ThreatHub</a>
+    </header>
+    <nav>
+        <a href="/home">Home</a>
+        <a href="/aboutus">About Us</a>
+        <a href="#">LearnHub</a>
+    </nav>
+    <h1>ThreatHub FAQ</h1>
+
+    <div class="faq-section">
+        <h2 class="question">1. What is ThreatHub?</h2>
+        <p class="answer">ThreatHub is a cybersecurity news aggregator that provides real-time updates on the latest
+            cybersecurity threats and news. It leverages advanced technology to aggregate information from reputable
+            sources, keeping you informed about the evolving cyber landscape.</p>
+    </div>
+
+    <div class="faq-section">
+        <h2 class="question">2. How does ThreatHub collect cybersecurity news?</h2>
+        <p class="answer">ThreatHub uses the News API to collect and aggregate cybersecurity news from various trusted
+            sources. This allows us to provide a comprehensive overview of the current cybersecurity landscape.</p>
+    </div>
+
+    <div class="faq-section">
+        <h2 class="question">3. What is LearnHub?</h2>
+        <p class="answer">LearnHub is the educational corner of ThreatHub dedicated to the cybersecurity domain. It
+            offers articles, tutorials, case studies, and interactive learning resources to enhance your knowledge and
+            skills in cybersecurity.</p>
+    </div>
+
+    <div class="faq-section">
+        <h2 class="question">4. How can I stay updated with the latest cybersecurity news on ThreatHub?</h2>
+        <p class="answer">You can stay updated by regularly visiting our website or by following us on social media.
+            Additionally, you can customize your news feed based on your interests and preferences within the ThreatHub
+            platform.</p>
+    </div>
+
+    <div class="faq-section">
+        <h2 class="question">5. Is ThreatHub suitable for cybersecurity professionals and enthusiasts?</h2>
+        <p class="answer">Yes, ThreatHub is designed to cater to both cybersecurity professionals and enthusiasts.
+            Whether you are an expert in the field or a newcomer, ThreatHub provides valuable insights and resources to
+            meet your cybersecurity needs.</p>
+    </div>
+
+    <div class="faq-section">
+        <h2 class="question">6. How can I contact ThreatHub for inquiries or support?</h2>
+        <p class="answer">For any inquiries or support, you can reach out to us through the contact information provided
+            on our "Contact Us" page. We are also available on social media platforms, such as Instagram and Twitter.
+        </p>
+    </div>
+    <footer>
+        <div class="copyright">© Threathub.2023</div>
+        <div class="social-media">
+            <div class="instagram" onclick="insta()">Instagram</div>
+            <div class="twitter" onclick="twi()">Twitter</div>
+        </div>
+    </footer>
+    <script>
+        function openNav() {
+            document.getElementById("mySidenav").style.width = "250px";
+        }
+
+        function closeNav() {
+            document.getElementById("mySidenav").style.width = "0";
+        }
+    </script>
+</body>
+
+</html>
